@@ -1,0 +1,55 @@
+{
+  "name": "@bipboys/logger",
+  "version": "0.0.9",
+  "description": "Console logger",
+  "homepage": "https://github.com/bipboys-labs/logger#readme",
+  "bugs": {
+    "url": "https://github.com/bipboys-labs/logger/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bipboys-labs/logger.git"
+  },
+  "license": "MIT",
+  "author": "Bipboys Dev Team",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.js"
+    }
+  },
+  "main": "lib/index.js",
+  "types": "types/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib/*",
+    "types/*",
+    "!*.tsbuildinfo",
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "pnpm build:clean && pnpm re:build && heft build --clean",
+    "build:clean": "rimraf ./lib && mkdir lib",
+    "build:force": "heft build --clean",
+    "build:watch": "heft build --watch",
+    "clean": "rimraf ./node_modules && rimraf ./coverage && build:clean",
+    "re:build": "rescript",
+    "re:start": "rescript build -w"
+  },
+  "dependencies": {
+    "tslib": "^2.4.0"
+  },
+  "devDependencies": {
+    "@rushstack/heft": "^0.45.4",
+    "@types/node": "^17.0.35",
+    "gentype": "^4.3.0",
+    "prettier": "^2.6.2",
+    "rescript": "^9.1.4",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.4"
+  }
+}

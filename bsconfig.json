@@ -1,0 +1,25 @@
+{
+    "name": "@biptik/logger",
+    "sources": [
+      {
+        "dir": "src/res",
+        "subdirs": true
+      }
+    ],
+    "package-specs": [
+      {
+        "module": "es6",
+        "in-source": true
+      }
+    ],
+    "suffix": ".bs.js",
+    "gentypeconfig": {
+        "language": "typescript",
+        "shims": {},
+        "debug": {
+          "all": false,
+          "basic": false
+        }
+    },
+    "bs-dependencies": []
+  }
