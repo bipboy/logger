@@ -18,13 +18,12 @@ function ts(param) {
 }
 
 function prefixFn(logLevelsType, name) {
-  return "[" + logLevelsType + "] " + ts(undefined) + " " + name;
+  return "[" + logLevelsType + "] " + ts(undefined) + " " + name + "";
 }
 
 export {
   padding ,
   ts ,
   prefixFn ,
-  
 }
 /* No side effect */
