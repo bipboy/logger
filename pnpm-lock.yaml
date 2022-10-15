@@ -1,8 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@rushstack/heft': ^0.48.3
-  '@types/node': ^18.8.5
+  '@rushstack/heft': ^0.48.4
+  '@types/node': ^18.11.0
   gentype: ^4.5.0
   prettier: ^2.7.1
   rescript: ^10.0.1
@@ -14,8 +14,8 @@ dependencies:
   tslib: 2.4.0
 
 devDependencies:
-  '@rushstack/heft': 0.48.3
-  '@types/node': 18.8.5
+  '@rushstack/heft': 0.48.4
+  '@types/node': 18.11.0
   gentype: 4.5.0
   prettier: 2.7.1
   rescript: 10.0.1
@@ -54,8 +54,8 @@ packages:
       jsonpath-plus: 4.0.0
     dev: true
 
-  /@rushstack/heft/0.48.3:
-    resolution: {integrity: sha512-2dymV0/sNpHmnBJKqcwN+6rpthlqDivWEfhPUGkW9I9g4S5isI/5hKD0e5UY+m3rM43A1hMx9s/IYYkoUVK3gQ==}
+  /@rushstack/heft/0.48.4:
+    resolution: {integrity: sha512-m/Np9jg5LGC/gFkysZ3idFOjN9atM5K4myRqVtKC19oP8NUqcAxmmcUJ1qZL0YpmygLg0EdP0TiJfTqT5zUXrg==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dependencies:
@@ -112,8 +112,8 @@ packages:
     resolution: {integrity: sha512-yxDeaQIAJlMav7fH5AQqPH1u8YIuhYJXYBzxaQ4PifsU0GDO38MSdmEDeRlIxrKbC6NbEaaEHDanWb+y30U8SQ==}
     dev: true
 
-  /@types/node/18.8.5:
-    resolution: {integrity: sha512-Bq7G3AErwe5A/Zki5fdD3O6+0zDChhg671NfPjtIcbtzDNZTv4NPKMRFr7gtYPG7y+B8uTiNK4Ngd9T0FTar6Q==}
+  /@types/node/18.11.0:
+    resolution: {integrity: sha512-IOXCvVRToe7e0ny7HpT/X9Rb2RYtElG1a+VshjwT00HxrM2dWBApHQoqsI6WiY7Q03vdf2bCrIGzVrkF/5t10w==}
     dev: true
 
   /@types/tapable/1.0.6:

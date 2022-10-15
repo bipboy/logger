@@ -1,6 +1,6 @@
 {
   "name": "@bipboys/logger",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Console logger",
   "homepage": "https://github.com/bipboys-labs/logger#readme",
   "bugs": {
@@ -44,8 +44,8 @@
     "tslib": "^2.4.0"
   },
   "devDependencies": {
-    "@rushstack/heft": "^0.48.3",
-    "@types/node": "^18.8.5",
+    "@rushstack/heft": "^0.48.4",
+    "@types/node": "^18.11.0",
     "gentype": "^4.5.0",
     "prettier": "^2.7.1",
     "rescript": "^10.0.1",
