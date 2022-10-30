@@ -1,8 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@rushstack/heft': ^0.48.4
-  '@types/node': ^18.11.0
+  '@rushstack/heft': ^0.48.7
+  '@types/node': ^18.11.7
   gentype: ^4.5.0
   prettier: ^2.7.1
   rescript: ^10.0.1
@@ -14,8 +14,8 @@ dependencies:
   tslib: 2.4.0
 
 devDependencies:
-  '@rushstack/heft': 0.48.4
-  '@types/node': 18.11.0
+  '@rushstack/heft': 0.48.7
+  '@types/node': 18.11.7
   gentype: 4.5.0
   prettier: 2.7.1
   rescript: 10.0.1
@@ -54,15 +54,15 @@ packages:
       jsonpath-plus: 4.0.0
     dev: true
 
-  /@rushstack/heft/0.48.4:
-    resolution: {integrity: sha512-m/Np9jg5LGC/gFkysZ3idFOjN9atM5K4myRqVtKC19oP8NUqcAxmmcUJ1qZL0YpmygLg0EdP0TiJfTqT5zUXrg==}
+  /@rushstack/heft/0.48.7:
+    resolution: {integrity: sha512-qquwIHpfZ73BEcwt97vEgPmTynn7yPsaWCBK1IvEi7ZJAHAMEFaEcl9ZoDO8br5fJx7FSfc0vc3KzxwjNgZijQ==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dependencies:
       '@rushstack/heft-config-file': 0.11.3
       '@rushstack/node-core-library': 3.53.2
       '@rushstack/rig-package': 0.3.17
-      '@rushstack/ts-command-line': 4.12.5
+      '@rushstack/ts-command-line': 4.13.0
       '@types/tapable': 1.0.6
       argparse: 1.0.10
       chokidar: 3.4.3
@@ -95,8 +95,8 @@ packages:
       strip-json-comments: 3.1.1
     dev: true
 
-  /@rushstack/ts-command-line/4.12.5:
-    resolution: {integrity: sha512-PCKrOu4RXKXPHcswHEQ9MYDW7Z7iQ+vbkvPtqHC46zFxD67ZCBXkm9P8QNOtED0cQzXh5nCtFnSOMuaOQf0GaQ==}
+  /@rushstack/ts-command-line/4.13.0:
+    resolution: {integrity: sha512-crLT31kl+qilz0eBRjqqYO06CqwbElc0EvzS6jI69B9Ikt1SkkSzIZ2iDP7zt/rd1ZYipKIS9hf9CQR9swDIKg==}
     dependencies:
       '@types/argparse': 1.0.38
       argparse: 1.0.10
@@ -112,8 +112,8 @@ packages:
     resolution: {integrity: sha512-yxDeaQIAJlMav7fH5AQqPH1u8YIuhYJXYBzxaQ4PifsU0GDO38MSdmEDeRlIxrKbC6NbEaaEHDanWb+y30U8SQ==}
     dev: true
 
-  /@types/node/18.11.0:
-    resolution: {integrity: sha512-IOXCvVRToe7e0ny7HpT/X9Rb2RYtElG1a+VshjwT00HxrM2dWBApHQoqsI6WiY7Q03vdf2bCrIGzVrkF/5t10w==}
+  /@types/node/18.11.7:
+    resolution: {integrity: sha512-LhFTglglr63mNXUSRYD8A+ZAIu5sFqNJ4Y2fPuY7UlrySJH87rRRlhtVmMHplmfk5WkoJGmDjE9oiTfyX94CpQ==}
     dev: true
 
   /@types/tapable/1.0.6:
