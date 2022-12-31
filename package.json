@@ -1,6 +1,6 @@
 {
   "name": "@bipboys/logger",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Console logger",
   "homepage": "https://github.com/bipboys-labs/logger#readme",
   "bugs": {
@@ -32,7 +32,7 @@
     "index.d.ts"
   ],
   "scripts": {
-    "build": "pnpm build:clean && pnpm re:build && heft build --clean",
+    "build": "npm run build:clean && npm run re:build && heft build --clean",
     "build:clean": "rimraf ./lib && mkdir lib",
     "build:force": "heft build --clean",
     "build:watch": "heft build --watch",
@@ -41,15 +41,15 @@
     "re:start": "rescript build -w"
   },
   "dependencies": {
-    "tslib": "^2.4.0"
+    "tslib": "^2.4.1"
   },
   "devDependencies": {
-    "@rushstack/heft": "^0.48.7",
-    "@types/node": "^18.11.7",
+    "@rushstack/heft": "^0.49.0",
+    "@types/node": "^18.11.18",
     "gentype": "^4.5.0",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.1",
     "rescript": "^10.0.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.8.4"
+    "typescript": "^4.9.4"
   }
 }
