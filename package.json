@@ -1,6 +1,6 @@
 {
   "name": "@bipboys/logger",
-  "version": "0.0.15",
+  "version": "0.1.0",
   "description": "Console logger",
   "homepage": "https://github.com/bipboys-labs/logger#readme",
   "bugs": {
@@ -32,24 +32,25 @@
     "index.d.ts"
   ],
   "scripts": {
-    "build": "npm run build:clean && npm run re:build && heft build --clean",
-    "build:clean": "rimraf ./lib && mkdir lib",
+    "build": "npm run re:build && heft build",
     "build:force": "heft build --clean",
     "build:watch": "heft build --watch",
     "clean": "rimraf ./node_modules && rimraf ./coverage && build:clean",
     "re:build": "rescript",
-    "re:start": "rescript build -w"
+    "re:start": "rescript build -w",
+    "test": "node ./src/spec/example.test.js"
   },
   "dependencies": {
-    "tslib": "^2.5.0"
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@rushstack/heft": "^0.50.4",
-    "@types/node": "^18.16.3",
-    "gentype": "^4.5.0",
-    "prettier": "^2.8.8",
-    "rescript": "^10.1.4",
-    "rimraf": "^5.0.0",
-    "typescript": "^4.9.5"
+    "@rescript/core": "^1.6.1",
+    "@rushstack/heft": "^1.1.3",
+    "@rushstack/heft-typescript-plugin": "^1.1.3",
+    "@types/node": "^24.9.1",
+    "prettier": "^3.6.2",
+    "rescript": "^11.1.4",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.9.3"
   }
 }

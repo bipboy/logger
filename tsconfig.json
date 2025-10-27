@@ -37,5 +37,12 @@
     "pretty": true
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx", "index.ts", "./src/**/*.js"],
-  "exclude": ["**/*.test.ts", "**/*.test.tsx"]
+  "exclude": [
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "./src/res/**/*.res",
+    "./src/res/*.res",
+    "node_modules",
+    "lib"
+  ]
 }

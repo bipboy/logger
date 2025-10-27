@@ -28,65 +28,75 @@ npm install @bipboys/logger
 
 ## Usage
 
-It couldn't be easier! You create an instance of a class with a name and the required priority. Then you call the required method to output the logging message to the console. The message will be displayed in the format shown below.
+### Simple Usage (Default Logger)
+
+You can use logger functions directly without creating an instance. By default, all log levels are enabled:
 
 ```js
-// default level
-const log = new ConsoleLogger('Example Log');
+import {error, info, warn, debug, verbose, log, trace} from '@bipboys/logger';
 
-log.error('test error');
-log.info('test info');
-log.verbose('test verbose');
-log.warn('test warn');
-log.log('test log');
-log.debug('test debug');
-log.trace('test trace');
+error('test error');
+info('test info');
+verbose('test verbose');
+warn('test warn');
+log('test log');
+debug('test debug');
+trace('test trace');
 ```
 
 ```console
 -------------------------------
 Priority - DEFAULT
 -------------------------------
-[ERROR] 46:04.704 Example Log - test error
-[INFO] 46:04.705 Example Log - test info
-[WARN] 46:04.706 Example Log - test warn
-[INFO] 46:04.706 Example Log - test log
-[DEBUG] 46:04.706 Example Log - test debug
-[TRACE] 46:04.707 Example Log - test trace
+[ERROR] 52:02.40 default test error
+[INFO] 52:02.40 default test info
+[VERBOSE] 52:02.40 default test verbose
+[WARN] 52:02.40 default test warn
+[INFO] 52:02.40 default test log
+[DEBUG] 52:02.40 default test debug
+[TRACE] 52:02.41 default test trace
 ```
 
-Displays messages with the specified priority and higher to the console
+### Creating Custom Logger Instances
+
+You can create named logger instances for different parts of your application:
 
 ```js
-// error level
-log = new ConsoleLogger('Example Log', 'ERROR');
+import {make, error, info, warn} from '@bipboys/logger';
 
-log.error('test error');
-log.info('test info');
-log.verbose('test verbose');
-log.warn('test warn');
-log.log('test log');
-log.debug('test debug');
-log.trace('test trace');
+// Create a logger with specific name and log level
+const logger = make('MyApp', 'DEBUG');
+
+// The logger instance contains name and level information
+console.log(logger); // { name: 'MyApp', level: 'DEBUG' }
 ```
 
-```console
--------------------------------
-Priority - ERROR
--------------------------------
-[ERROR] 46:04.707 Example Log - test error
-[TRACE] 46:04.707 Example Log - test trace
-```
+This is useful when you want to differentiate log output from different components in your application.
 
 ## Priority Levels
 
-> 1. VERBOSE
-> 2. DEBUG
-> 3. INFO
-> 4. WARN
-> 5. ERROR
-> 6. TRACE
+The logger supports 6 priority levels from lowest to highest:
+
+1. **VERBOSE** - Most verbose output
+2. **DEBUG** - Debugging information
+3. **INFO** - General information
+4. **WARN** - Warning messages
+5. **ERROR** - Error messages
+6. **TRACE** - Tracing information
+
+Only messages with priority equal to or higher than the configured level will be displayed.
 
 ## Usage with TypeScript
 
-See [the typescript usage example](./src/spec/example.test.ts)
+TypeScript types are automatically generated from ReScript code. Import types from the generated file:
+
+```typescript
+import type {logLevel, consoleLoggerType} from '@bipboys/logger';
+import {make, error, info, warn} from '@bipboys/logger';
+
+const logger: consoleLoggerType = make('MyApp', 'DEBUG');
+error('test error');
+info('test info');
+```
+
+See [the example file](./src/spec/example.test.js) for a complete usage example.

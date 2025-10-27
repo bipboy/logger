@@ -1,0 +1,30 @@
+{
+  "name": "@bipboys/logger",
+  "sources": [
+    {
+      "dir": "src/res",
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "esmodule",
+      "in-source": true
+    }
+  ],
+  "suffix": ".res.js",
+  "gentypeconfig": {
+    "module": "esmodule",
+    "generatedFileExtension": ".gen.tsx",
+    "shims": {
+      "Js": "Js"
+    },
+    "importPath": "relative",
+    "debug": {
+      "all": false,
+      "basic": false
+    }
+  },
+  "bsc-flags": ["-open RescriptCore"],
+  "bs-dependencies": ["@rescript/core"]
+}

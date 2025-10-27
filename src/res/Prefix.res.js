@@ -5,11 +5,11 @@ function padding(n) {
   if (n < 10) {
     return "0" + String(n);
   } else {
-    return "" + String(n);
+    return String(n);
   }
 }
 
-function ts(param) {
+function ts() {
   var date = new Date();
   return [
             padding(date.getMinutes() | 0),
@@ -18,7 +18,7 @@ function ts(param) {
 }
 
 function prefixFn(logLevelsType, name) {
-  return "[" + logLevelsType + "] " + ts(undefined) + " " + name + "";
+  return "[" + logLevelsType + "] " + ts() + " " + name;
 }
 
 export {
