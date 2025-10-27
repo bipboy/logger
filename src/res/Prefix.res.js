@@ -12,6 +12,7 @@ function padding(n) {
 function ts() {
   var date = new Date();
   return [
+            padding(date.getHours() | 0),
             padding(date.getMinutes() | 0),
             padding(date.getSeconds() | 0)
           ].join(":") + "." + String(date.getMilliseconds());

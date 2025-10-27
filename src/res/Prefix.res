@@ -9,6 +9,7 @@ let ts = () => {
   let date = Js.Date.make()
   open Js.Array2
   [
+    date->Js.Date.getHours->Belt.Float.toInt->padding,
     date->Js.Date.getMinutes->Belt.Float.toInt->padding,
     date->Js.Date.getSeconds->Belt.Float.toInt->padding,
   ]->joinWith(":") ++
