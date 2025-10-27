@@ -97,6 +97,14 @@ function _log(logger, typeLevel, msg) {
         });
   }
   var prefix = Prefix.prefixFn(levelToString(typeLevel), logger.name);
+  var isNullish = (msg == null || msg == undefined);
+  if (isNullish) {
+    var label = (msg === undefined ? 'undefined' : 'null');
+    return logFn([
+                prefix,
+                label
+              ]);
+  }
   var _n = msg.length;
   if (_n !== 0) {
     if (_n !== 1) {

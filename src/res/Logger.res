@@ -94,14 +94,24 @@ module ConsoleLoggerInternal: Logger = {
 
       let prefix = Prefix.prefixFn(~logLevelsType=levelToString(typeLevel), ~name=logger.name)
 
-      switch msg->Js.Array2.length {
-      | 0 => logFn([Js.Json.string(prefix)])
-      | 1 =>
-        // `log(prefix, msg[0]);`
-        logFn([Js.Json.string(prefix), Belt.Array.getExn(msg, 0)])
-      | _n =>
-        // `log(prefix, msg);`
-        logFn(Js.Array2.concat([Js.Json.string(prefix)], msg))
+      // Check if msg is null/undefined
+      let isNullish = %raw("msg == null || msg == undefined")
+
+      if isNullish {
+        // Log null/undefined as strings for clarity
+        let label = %raw("msg === undefined ? 'undefined' : 'null'")
+        logFn([Js.Json.string(prefix), Js.Json.string(label)])
+      } else {
+        // msg is an array
+        switch msg->Js.Array2.length {
+        | 0 => logFn([Js.Json.string(prefix)])
+        | 1 =>
+          // `log(prefix, msg[0]);`
+          logFn([Js.Json.string(prefix), Belt.Array.getExn(msg, 0)])
+        | _n =>
+          // `log(prefix, msg);`
+          logFn(Js.Array2.concat([Js.Json.string(prefix)], msg))
+        }
       }
     }
   }
