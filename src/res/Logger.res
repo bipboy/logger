@@ -157,42 +157,42 @@ let make = (~name: string, ~level="DEBUG", ()): consoleLoggerType => {
 
 @genType @variadic
 let info = (msg: array<Js.Json.t>) => {
-  let defaultLogger = make(~name="default", ~level="VERBOSE", ())
+  let defaultLogger = make(~name="info", ~level="VERBOSE", ())
   ConsoleLoggerInternal.info(defaultLogger->Obj.magic, msg)
 }
 
 @genType @variadic
 let warn = (msg: array<Js.Json.t>) => {
-  let defaultLogger = make(~name="default", ~level="VERBOSE", ())
+  let defaultLogger = make(~name="warn", ~level="VERBOSE", ())
   ConsoleLoggerInternal.warn(defaultLogger->Obj.magic, msg)
 }
 
 @genType @variadic
 let error = (msg: array<Js.Json.t>) => {
-  let defaultLogger = make(~name="default", ~level="VERBOSE", ())
+  let defaultLogger = make(~name="error", ~level="VERBOSE", ())
   ConsoleLoggerInternal.error(defaultLogger->Obj.magic, msg)
 }
 
 @genType @variadic
 let debug = (msg: array<Js.Json.t>) => {
-  let defaultLogger = make(~name="default", ~level="VERBOSE", ())
+  let defaultLogger = make(~name="debug", ~level="VERBOSE", ())
   ConsoleLoggerInternal.debug(defaultLogger->Obj.magic, msg)
 }
 
 @genType @variadic
 let verbose = (msg: array<Js.Json.t>) => {
-  let defaultLogger = make(~name="default", ~level="VERBOSE", ())
+  let defaultLogger = make(~name="verbose", ~level="VERBOSE", ())
   ConsoleLoggerInternal.verbose(defaultLogger->Obj.magic, msg)
 }
 
 @genType @variadic
 let log = (msg: array<Js.Json.t>) => {
-  let defaultLogger = make(~name="default", ~level="VERBOSE", ())
+  let defaultLogger = make(~name="log", ~level="VERBOSE", ())
   ConsoleLoggerInternal.log(defaultLogger->Obj.magic, msg)
 }
 
 @genType @variadic
 let trace = (msg: array<Js.Json.t>) => {
-  let defaultLogger = make(~name="default", ~level="VERBOSE", ())
+  let defaultLogger = make(~name="trace", ~level="VERBOSE", ())
   ConsoleLoggerInternal.trace(defaultLogger->Obj.magic, msg)
 }

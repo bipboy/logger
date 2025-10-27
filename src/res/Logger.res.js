@@ -173,37 +173,37 @@ function make$1(name, levelOpt, param) {
 }
 
 function info$1(msg) {
-  var defaultLogger = make$1("default", "VERBOSE", undefined);
+  var defaultLogger = make$1("info", "VERBOSE", undefined);
   info(defaultLogger, msg);
 }
 
 function warn$1(msg) {
-  var defaultLogger = make$1("default", "VERBOSE", undefined);
+  var defaultLogger = make$1("warn", "VERBOSE", undefined);
   warn(defaultLogger, msg);
 }
 
 function error$1(msg) {
-  var defaultLogger = make$1("default", "VERBOSE", undefined);
+  var defaultLogger = make$1("error", "VERBOSE", undefined);
   error(defaultLogger, msg);
 }
 
 function debug$1(msg) {
-  var defaultLogger = make$1("default", "VERBOSE", undefined);
+  var defaultLogger = make$1("debug", "VERBOSE", undefined);
   debug(defaultLogger, msg);
 }
 
 function verbose$1(msg) {
-  var defaultLogger = make$1("default", "VERBOSE", undefined);
+  var defaultLogger = make$1("verbose", "VERBOSE", undefined);
   verbose(defaultLogger, msg);
 }
 
 function log$1(msg) {
-  var defaultLogger = make$1("default", "VERBOSE", undefined);
+  var defaultLogger = make$1("log", "VERBOSE", undefined);
   log(defaultLogger, msg);
 }
 
 function trace$1(msg) {
-  var defaultLogger = make$1("default", "VERBOSE", undefined);
+  var defaultLogger = make$1("trace", "VERBOSE", undefined);
   trace(defaultLogger, msg);
 }
 
