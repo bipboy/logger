@@ -25,7 +25,6 @@
       "basic": false
     }
   },
-  "external-stdlib": "@rescript/std",
-  "bsc-flags": ["-open RescriptCore"],
-  "bs-dependencies": ["@rescript/core"]
+  "compiler-flags": [],
+  "dependencies": []
 }

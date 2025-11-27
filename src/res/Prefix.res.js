@@ -12,10 +12,10 @@ function padding(n) {
 function ts() {
   let date = new Date();
   return [
-    padding(date.getHours() | 0),
-    padding(date.getMinutes() | 0),
-    padding(date.getSeconds() | 0)
-  ].join(":") + "." + String(date.getMilliseconds());
+    padding(date.getHours()),
+    padding(date.getMinutes()),
+    padding(date.getSeconds())
+  ].join(":") + "." + date.getMilliseconds().toString();
 }
 
 function prefixFn(logLevelsType, name) {

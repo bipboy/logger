@@ -19,7 +19,7 @@ let levelToValue = (level: logLevel): int => {
 }
 
 let levelFromString = (str: string): option<logLevel> => {
-  switch Js.String.toUpperCase(str) {
+  switch String.toUpperCase(str) {
   | "VERBOSE" => Some(VERBOSE)
   | "DEBUG" => Some(DEBUG)
   | "INFO" => Some(INFO)
@@ -45,13 +45,13 @@ module type Logger = {
   type t
   let make: (~name: string, ~level: string=?, unit) => t
 
-  @variadic let log: (t, array<Js.Json.t>) => unit
-  @variadic let info: (t, array<Js.Json.t>) => unit
-  @variadic let warn: (t, array<Js.Json.t>) => unit
-  @variadic let error: (t, array<Js.Json.t>) => unit
-  @variadic let debug: (t, array<Js.Json.t>) => unit
-  @variadic let verbose: (t, array<Js.Json.t>) => unit
-  @variadic let trace: (t, array<Js.Json.t>) => unit
+  @variadic let log: (t, array<JSON.t>) => unit
+  @variadic let info: (t, array<JSON.t>) => unit
+  @variadic let warn: (t, array<JSON.t>) => unit
+  @variadic let error: (t, array<JSON.t>) => unit
+  @variadic let debug: (t, array<JSON.t>) => unit
+  @variadic let verbose: (t, array<JSON.t>) => unit
+  @variadic let trace: (t, array<JSON.t>) => unit
 }
 
 @genType
@@ -73,16 +73,16 @@ module ConsoleLoggerInternal: Logger = {
   }
 
   @val @scope("console") @variadic
-  external logInternal: array<Js.Json.t> => unit = "log"
+  external logInternal: array<JSON.t> => unit = "log"
 
   @val @scope("console") @variadic
-  external warnInternal: array<Js.Json.t> => unit = "warn"
+  external warnInternal: array<JSON.t> => unit = "warn"
 
   @val @scope("console") @variadic
-  external errorInternal: array<Js.Json.t> => unit = "error"
+  external errorInternal: array<JSON.t> => unit = "error"
 
   @variadic
-  let _log = (logger: t, typeLevel: logLevel, msg: array<Js.Json.t>): unit => {
+  let _log = (logger: t, typeLevel: logLevel, msg: array<JSON.t>): unit => {
     let effectiveLoggerLevel = getEffectiveLevel(logger.level)
 
     if levelToValue(typeLevel) >= levelToValue(effectiveLoggerLevel) {
@@ -100,17 +100,17 @@ module ConsoleLoggerInternal: Logger = {
       if isNullish {
         // Log null/undefined as strings for clarity
         let label = %raw("msg === undefined ? 'undefined' : 'null'")
-        logFn([Js.Json.string(prefix), Js.Json.string(label)])
+        logFn([JSON.Encode.string(prefix), JSON.Encode.string(label)])
       } else {
         // msg is an array
-        switch msg->Js.Array2.length {
-        | 0 => logFn([Js.Json.string(prefix)])
+        switch msg->Array.length {
+        | 0 => logFn([JSON.Encode.string(prefix)])
         | 1 =>
           // `log(prefix, msg[0]);`
-          logFn([Js.Json.string(prefix), Belt.Array.getExn(msg, 0)])
+          logFn([JSON.Encode.string(prefix), Belt.Array.getExn(msg, 0)])
         | _n =>
           // `log(prefix, msg);`
-          logFn(Js.Array2.concat([Js.Json.string(prefix)], msg))
+          logFn(Array.concat([JSON.Encode.string(prefix)], msg))
         }
       }
     }
@@ -121,31 +121,31 @@ module ConsoleLoggerInternal: Logger = {
     name,
   }
 
-  let log = (logger: t, msg: array<Js.Json.t>) => {
+  let log = (logger: t, msg: array<JSON.t>) => {
     _log(logger, INFO, msg)
   }
 
-  let info = (logger: t, msg: array<Js.Json.t>) => {
+  let info = (logger: t, msg: array<JSON.t>) => {
     _log(logger, INFO, msg)
   }
 
-  let warn = (logger: t, msg: array<Js.Json.t>) => {
+  let warn = (logger: t, msg: array<JSON.t>) => {
     _log(logger, WARN, msg)
   }
 
-  let error = (logger: t, msg: array<Js.Json.t>) => {
+  let error = (logger: t, msg: array<JSON.t>) => {
     _log(logger, ERROR, msg)
   }
 
-  let debug = (logger: t, msg: array<Js.Json.t>) => {
+  let debug = (logger: t, msg: array<JSON.t>) => {
     _log(logger, DEBUG, msg)
   }
 
-  let verbose = (logger: t, msg: array<Js.Json.t>) => {
+  let verbose = (logger: t, msg: array<JSON.t>) => {
     _log(logger, VERBOSE, msg)
   }
 
-  let trace = (logger: t, msg: array<Js.Json.t>) => {
+  let trace = (logger: t, msg: array<JSON.t>) => {
     _log(logger, TRACE, msg)
   }
 }
@@ -156,43 +156,43 @@ let make = (~name: string, ~level="DEBUG", ()): consoleLoggerType => {
 }
 
 @genType @variadic
-let info = (msg: array<Js.Json.t>) => {
+let info = (msg: array<JSON.t>) => {
   let defaultLogger = make(~name="info", ~level="VERBOSE", ())
   ConsoleLoggerInternal.info(defaultLogger->Obj.magic, msg)
 }
 
 @genType @variadic
-let warn = (msg: array<Js.Json.t>) => {
+let warn = (msg: array<JSON.t>) => {
   let defaultLogger = make(~name="warn", ~level="VERBOSE", ())
   ConsoleLoggerInternal.warn(defaultLogger->Obj.magic, msg)
 }
 
 @genType @variadic
-let error = (msg: array<Js.Json.t>) => {
+let error = (msg: array<JSON.t>) => {
   let defaultLogger = make(~name="error", ~level="VERBOSE", ())
   ConsoleLoggerInternal.error(defaultLogger->Obj.magic, msg)
 }
 
 @genType @variadic
-let debug = (msg: array<Js.Json.t>) => {
+let debug = (msg: array<JSON.t>) => {
   let defaultLogger = make(~name="debug", ~level="VERBOSE", ())
   ConsoleLoggerInternal.debug(defaultLogger->Obj.magic, msg)
 }
 
 @genType @variadic
-let verbose = (msg: array<Js.Json.t>) => {
+let verbose = (msg: array<JSON.t>) => {
   let defaultLogger = make(~name="verbose", ~level="VERBOSE", ())
   ConsoleLoggerInternal.verbose(defaultLogger->Obj.magic, msg)
 }
 
 @genType @variadic
-let log = (msg: array<Js.Json.t>) => {
+let log = (msg: array<JSON.t>) => {
   let defaultLogger = make(~name="log", ~level="VERBOSE", ())
   ConsoleLoggerInternal.log(defaultLogger->Obj.magic, msg)
 }
 
 @genType @variadic
-let trace = (msg: array<Js.Json.t>) => {
+let trace = (msg: array<JSON.t>) => {
   let defaultLogger = make(~name="trace", ~level="VERBOSE", ())
   ConsoleLoggerInternal.trace(defaultLogger->Obj.magic, msg)
 }
