@@ -10,21 +10,21 @@ function padding(n) {
 }
 
 function ts() {
-  var date = new Date();
+  let date = new Date();
   return [
-            padding(date.getHours() | 0),
-            padding(date.getMinutes() | 0),
-            padding(date.getSeconds() | 0)
-          ].join(":") + "." + String(date.getMilliseconds());
+    padding(date.getHours() | 0),
+    padding(date.getMinutes() | 0),
+    padding(date.getSeconds() | 0)
+  ].join(":") + "." + String(date.getMilliseconds());
 }
 
 function prefixFn(logLevelsType, name) {
-  return "[" + logLevelsType + "] " + ts() + " " + name;
+  return `[` + logLevelsType + `] ` + ts() + ` ` + name;
 }
 
 export {
-  padding ,
-  ts ,
-  prefixFn ,
+  padding,
+  ts,
+  prefixFn,
 }
 /* No side effect */
