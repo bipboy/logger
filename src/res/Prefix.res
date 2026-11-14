@@ -7,7 +7,6 @@ let padding = (n: int) => {
 
 let ts = () => {
   let date = Date.make()
-  open Js.Array2
   [
     date->Date.getHours->padding,
     date->Date.getMinutes->padding,
