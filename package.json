@@ -1,6 +1,6 @@
 {
   "name": "@bipboys/logger",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Console logger",
   "homepage": "https://github.com/bipboys-labs/logger#readme",
   "bugs": {
